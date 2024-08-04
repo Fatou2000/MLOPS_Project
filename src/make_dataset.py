@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
-"""Module for loading and preprocessing data"""
 
->>>>>>> origin/fatoumb
+"""Module for loading and preprocessing data"""
 import os
 import numpy as np
 import cv2
@@ -10,13 +7,9 @@ from tqdm import tqdm
 import matplotlib.pyplot as plt
 from collections import Counter
 import random
-<<<<<<< HEAD
-=======
 from tensorflow.keras.preprocessing.image import img_to_array
 import shutil
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-
->>>>>>> origin/fatoumb
 
 def load_data(path: str) -> tuple:
     images = []
@@ -53,7 +46,7 @@ def visualize_class_distribution(labels: np.ndarray, class_names: list):
     plt.show()
 
 
-<<<<<<< HEAD
+
 def show_random_images(images: np.ndarray, labels: np.ndarray, num_samples: int, mode: str = 'BGR2RGB'):
     if num_samples > len(images):
         raise ValueError("Number of samples requested exceeds available samples.")
@@ -90,7 +83,7 @@ def show_random_images(images: np.ndarray, labels: np.ndarray, num_samples: int,
         plt.axis('off')
     plt.tight_layout()
     plt.show()
-=======
+
 def plot_images_from_subfolders(base_dir, num_images=3):
     subfolders = [os.path.join(base_dir, folder) for folder in os.listdir(base_dir) if os.path.isdir(os.path.join(base_dir, folder))]
 
@@ -234,4 +227,4 @@ def increase_dataset(data, labels, zoom_range=0.2, horizontal_flip=True, augment
     final_labels_data = np.concatenate((labels, augmented_labels), axis=0)
 
     return final_imgs_data, final_labels_data
->>>>>>> origin/fatoumb
+
