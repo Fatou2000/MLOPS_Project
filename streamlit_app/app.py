@@ -7,7 +7,7 @@ from keras.models import load_model
 # Chargez votre modèle sauvegardé une seule fois
 @st.cache_resource
 def load_trained_model():
-    return load_model('models/model_best.keras')
+    return load_model('model_best.keras')
 
 model = load_trained_model()
 
