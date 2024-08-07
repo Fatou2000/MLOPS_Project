@@ -1,12 +1,11 @@
-# Configuration for VGG19
+# Configuration for VGG16
 VGG16_CONFIG = {
     'input_shape': (128, 128, 3),
     'num_classes': 6,
     'learning_rate': 1e-5,
     'batch_size': 32,
-    'epochs': 100,
-    'model_path': 'vgg16_pretrained.pth',
-    'pretrained' : True
+    'pretrained' : True,
+    'epochs': 50
 }
 
 # Configuration for MobileNetV2
@@ -14,9 +13,8 @@ MOBILENETV2_CONFIG = {
     'input_shape': (128, 128, 3),
     'num_classes': 6,
     'learning_rate': 0.0001,
-    'epochs':100,
     'patience':5,
-    'model_path': 'mobilenetv2_pretrained.pth'
+    'epochs':50
 }
 
 # Configuration for DenseNet
@@ -29,5 +27,5 @@ DENSENET_CONFIG = {
     'patience' : 6,
     'learning_rate': 1e-3,
     'batch_size': 64,
-    'epochs': 100
+    'epochs': 50
 }

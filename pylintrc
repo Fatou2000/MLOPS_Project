@@ -1,0 +1,10 @@
+[MASTER]
+
+disable=
+ E1101, #Instance of 'tuple' has no 'data' member (no-member)
+ E1101, #Module 'cv2' has no 'imwrite' member (no-member)
+ E0611, #No name 'keras' in module 'tensorflow' (no-name-in-module)
+ C0303, # For Trailing whitespace
+ fixme
+
+max-line-length=120
