@@ -1,12 +1,14 @@
 import unittest
 import numpy as np
-import sys
-import os
+
 from unittest.mock import patch
 from sklearn.preprocessing import LabelBinarizer
 from sklearn.datasets import load_sample_image
 from sklearn.model_selection import train_test_split
 # Ajoutez le répertoire src au chemin d'importation
+
+import sys
+import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 from make_dataset import load_data, visualize_class_distribution, show_random_images, plot_images_from_subfolders, img_dimensions, process_dataset, increase_dataset, split_data, check_class_distribution
 
