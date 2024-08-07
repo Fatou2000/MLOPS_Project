@@ -48,7 +48,7 @@ Le modèle entraîné est disponible sur Google Drive. Vous pouvez le téléchar
 ### Instructions pour Utiliser le Modèle
 
 1. Téléchargez le modèle à partir du lien ci-dessus.
-2. Placez le fichier `model_best.keras` dans le répertoire `models` situé sous `streamlit_app.
+2. Placez le fichier `model_best.keras` dans le répertoire `models` situé sous `streamlit_app`.
 
 ## Obtenir le Dataset
 
