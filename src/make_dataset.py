@@ -287,3 +287,19 @@ def split_data(data, labels, val_size=0.2, test_size=0.2, random_state=42):
 
     return x_train, x_val, x_test, y_train, y_val, y_test
 
+
+#******************
+def check_class_distribution(y_data, classes):
+    """
+    Vérifie la présence de chaque classe dans l'ensemble de données.
+
+    Arguments:
+    y_data -- Étiquettes de l'ensemble de données.
+    classes -- Liste des classes à vérifier.
+
+    Retourne:
+    Un dictionnaire avec la présence de chaque classe.
+    """
+    class_distribution = {cls: np.sum(np.argmax(y_data, axis=1) == cls) for cls in classes}
+    return class_distribution
+

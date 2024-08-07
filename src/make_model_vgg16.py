@@ -154,4 +154,4 @@ def test_model_vgg16(model, test_loader):
     # Calculer les métriques
     metrics = eval_metrics(y_true, y_pred, y_pred_proba)
 
-    return metrics
+    return y_pred_proba,metrics

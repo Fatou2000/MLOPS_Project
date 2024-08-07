@@ -7,7 +7,7 @@ from keras.models import load_model
 # Chargez votre modèle sauvegardé une seule fois
 @st.cache_resource
 def load_trained_model():
-    return load_model('models/model_best_v3.keras')
+    return load_model('models/model_best.keras')
 
 model = load_trained_model()
 
@@ -35,7 +35,7 @@ col1, col2 = st.columns([8, 1])  # La colonne de gauche occupe 8 parts, celle de
 
 with col1:
     # Titre de l'application avec emoji
-    st.title("♻️ Classification d'ordures avec le modèle : DenseNet")
+    st.title("♻️ Classification d'ordures")
 
 with col2:
     # Afficher le logo de l'entreprise

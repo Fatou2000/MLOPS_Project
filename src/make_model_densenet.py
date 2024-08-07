@@ -68,7 +68,7 @@ def build_densenet_model(config, data, labels, input_shape=(128, 128, 3)):
 
 
 def train_densenet_model(model, config, x_train, y_train, x_val, y_val, 
-                         drive_path='/content/drive/MyDrive/MLOPS_Project'):
+                        model_path ):
     """
     Entraîne le modèle avec les images augmentées et sauvegarde le meilleur modèle dans Google Drive.
 
@@ -78,7 +78,7 @@ def train_densenet_model(model, config, x_train, y_train, x_val, y_val,
     y_train -- Les étiquettes d'entraînement.
     x_val -- Les données de validation.
     y_val -- Les étiquettes de validation.
-    drive_path -- Le chemin vers Google Drive où le modèle sera sauvegardé.
+    model_path -- Le chemin vers Google Drive où le modèle sera sauvegardé.
 
     Retourne:
     history -- L'historique de l'entraînement.
@@ -107,7 +107,7 @@ def train_densenet_model(model, config, x_train, y_train, x_val, y_val,
 
     # Copier le meilleur modèle dans Google Drive
     if os.path.exists(checkpoint_path):
-        drive_model_path = os.path.join(drive_path, 'model_best.keras')
+        drive_model_path = os.path.join(model_path, 'model_best.keras')
         shutil.copy(checkpoint_path, drive_model_path)
         print(f"Model saved to Google Drive at {drive_model_path}")
     else:

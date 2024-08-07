@@ -165,36 +165,35 @@ def prepare_labels_for_mobilenetv2(labels):
     return labels.astype(np.int32)
 
 
-def train_mobilenetv2_model(model, data, config):
+def train_mobilenetv2_model(model, x_train, y_train, x_val, y_val, epochs, patience):
     """
-    Trains a MobileNetV2 model using training and validation data.
+    Entraîne un modèle MobileNetV2 en utilisant les données d'entraînement et de validation.
 
     Arguments:
-    model -- The Keras model to train.
-    data -- Dictionary containing 'train' and 'val' data.
-    config -- Dictionary containing training configuration.
+    model -- Le modèle Keras à entraîner.
+    x_train -- Les données d'entraînement (images).
+    y_train -- Les étiquettes d'entraînement.
+    x_val -- Les données de validation (images).
+    y_val -- Les étiquettes de validation.
+    epochs -- Le nombre d'époques pour l'entraînement.
+    patience -- Le nombre d'époques sans amélioration avant d'arrêter l'entraînement (pour EarlyStopping).
 
-    Returns:
-    history -- Training history, containing information on model performance at each epoch.
+    Retourne:
+    history -- L'historique de l'entraînement, contenant des informations sur la performance du modèle à chaque époque.
     """
-    x_train, y_train = data['train']
-    x_val, y_val = data['val']
-    epochs = config['epochs']
-    patience = config['patience']
-
+    # Préparer les étiquettes
     y_train = prepare_labels_for_mobilenetv2(y_train)
     y_val = prepare_labels_for_mobilenetv2(y_val)
 
     early_stopping = EarlyStopping(monitor='val_loss', patience=patience, restore_best_weights=True)
 
-    history = model.fit(
-        x_train, y_train,
-        epochs=epochs,
-        validation_data=(x_val, y_val),
-        callbacks=[early_stopping]
-    )
+    history = model.fit(x_train, y_train,
+                        epochs=epochs,
+                        validation_data=(x_val, y_val),
+                        callbacks=[early_stopping])
 
     return history
+
 
 
 def test_mobilenetv2_model(model, x_test, y_test, class_names):
